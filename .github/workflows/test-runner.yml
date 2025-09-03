@@ -1,0 +1,21 @@
+name: Test EC2 Runner
+
+on:
+  push:
+    branches: [ "main" ]   # runs when you push to main branch
+
+jobs:
+  test:
+    runs-on: self-hosted    # tells GitHub to use your EC2 runner
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Print Hello
+        run: echo "✅ GitHub Actions is running on EC2!"
+
+      - name: Show system info
+        run: |
+          uname -a
+          dotnet --version || echo "dotnet not installed"
+          whoami
