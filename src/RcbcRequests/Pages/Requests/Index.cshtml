@@ -1,0 +1,42 @@
+@page
+@model RequestsIndexModel
+@{
+    ViewData["Title"] = "Requests";
+}
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="h4 m-0">Requests</h2>
+    <a class="btn btn-primary" href="/Requests/Create">+ New Request</a>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th><th>Type</th><th>Details</th><th>Status</th><th>CreatedAt</th><th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    @foreach (var r in Model.Items)
+    {
+      <tr>
+        <td>@r.RequestID</td>
+        <td>@r.RequestType</td>
+        <td>@r.Details</td>
+        <td>@r.Status</td>
+        <td>@r.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+        <td class="d-flex gap-2">
+          <form method="post" asp-page-handler="Approve" asp-antiforgery="true" class="d-inline">
+            <input type="hidden" name="id" value="@r.RequestID" />
+            <button class="btn btn-sm btn-success" type="submit">Approve</button>
+          </form>
+          <form method="post" asp-page-handler="Deny" asp-antiforgery="true" class="d-inline">
+            <input type="hidden" name="id" value="@r.RequestID" />
+            <button class="btn btn-sm btn-danger" type="submit">Deny</button>
+          </form>
+        </td>
+      </tr>
+    }
+    </tbody>
+  </table>
+</div>
+

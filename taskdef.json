@@ -1,0 +1,25 @@
+{
+  "family": "rcbc-requests-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::190189400573:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "rcbc-requests",
+      "image": "190189400573.dkr.ecr.ap-northeast-1.amazonaws.com/rcbc-requests:latest",
+      "portMappings": [{ "containerPort": 8080, "protocol": "tcp" }],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/rcbc-requests",
+          "awslogs-region": "ap-northeast-1",
+          "awslogs-stream-prefix": "rcbc-requests"
+        }
+      },
+      "essential": true
+    }
+  ]
+}
+
