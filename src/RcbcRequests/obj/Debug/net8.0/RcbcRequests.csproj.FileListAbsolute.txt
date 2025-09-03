@@ -65,3 +65,4 @@
 /home/ubuntu/capstone/rcbc-requests/src/RcbcRequests/obj/Debug/net8.0/RcbcRequests.pdb
 /home/ubuntu/capstone/rcbc-requests/src/RcbcRequests/obj/Debug/net8.0/RcbcRequests.genruntimeconfig.cache
 /home/ubuntu/capstone/rcbc-requests/src/RcbcRequests/obj/Debug/net8.0/ref/RcbcRequests.dll
+/home/ubuntu/capstone/rcbc-requests/src/RcbcRequests/obj/Debug/net8.0/RcbcRequests.sourcelink.json
